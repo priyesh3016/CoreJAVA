@@ -1,0 +1,4 @@
+What is this keyword in Java?
+
+The this keyword in Java is used to refer to the current class object.
+It helps differentiate between instance variables and local variables, and is commonly used in constructors and methods.

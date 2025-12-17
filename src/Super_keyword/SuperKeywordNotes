@@ -1,0 +1,122 @@
+What is super keyword in Java?
+
+The super keyword in Java is used to refer to the immediate parent class object.
+It is mainly used to:
+
+Access parent class variables
+
+Call parent class methods
+
+Call parent class constructor
+
+
+🔹 What is super keyword in Java?
+
+The super keyword in Java is used to refer to the immediate parent class object.
+It is mainly used to:
+
+Access parent class variables
+
+Call parent class methods
+
+Call parent class constructor
+
+1️⃣ Access Parent Class Variable
+Example
+class Vehicle {
+    String type = "Vehicle";
+}
+
+class Car extends Vehicle {
+    String type = "Car";
+
+    void display() {
+        System.out.println(type);        // Child variable
+        System.out.println(super.type);  // Parent variable
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Car c = new Car();
+        c.display();
+    }
+}
+
+Output
+Car
+Vehicle
+
+
+📌 Why use super?
+To avoid variable name conflict between parent and child.
+
+2️⃣ Call Parent Class Method
+Example
+class Animal {
+    void sound() {
+        System.out.println("Animal makes sound");
+    }
+}
+
+class Dog extends Animal {
+    void sound() {
+        System.out.println("Dog barks");
+    }
+
+    void callParentSound() {
+        super.sound();
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Dog d = new Dog();
+        d.sound();            // Child method
+        d.callParentSound();  // Parent method
+    }
+}
+
+Output
+Dog barks
+Animal makes sound
+
+
+📌 Used when method overriding happens and you still want parent behavior.
+
+3️⃣ Call Parent Class Constructor
+Example
+class Person {
+    Person() {
+        System.out.println("Person constructor");
+    }
+}
+
+class Employee extends Person {
+    Employee() {
+        super(); // calls Person constructor
+        System.out.println("Employee constructor");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        new Employee();
+    }
+}
+
+Output
+Person constructor
+Employee constructor
+
+
+📌 Important rule:
+
+super() must be the first statement in the constructor.
+
+🔑 Key Points (Interview Ready)
+Point	Explanation
+super refers to	Immediate parent class
+Used for	Parent variable, method, constructor
+Constructor rule	Must be first line
+Works with	Inheritance only
